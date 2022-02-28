@@ -1,0 +1,192 @@
+.detalleProducto {
+    max-width: 800px;
+    width: 94%;
+    padding: 0 3%;
+    margin: 10px auto 50px auto;
+}
+
+.detalleProducto .detalle .marco {
+    border: 1px solid white;
+    padding: 25px;
+}
+
+.detalleProducto .detalle .marco img {
+    float: left;
+    width: 40%;
+}
+
+.detalleProducto .detalle .marco .info {
+    float: left;
+    width: 55%;
+    padding-left: 5%;
+    text-align: left;
+
+}
+
+.catalogo .uncuarto .marco {
+    border: 1px solid white;
+}
+
+.catalogo .uncuarto .marco img {
+    width: 100%;
+    transition: 0.2s;
+}
+
+.catalogo .uncuarto .marco:hover {
+    box-shadow: 0px 0px 18px 6px rgba(255, 255, 255, 0.75);
+}
+
+.catalogo .uncuarto .marco:hover img {
+    transform: scale(0.95);
+}
+
+.catalogo .uncuarto .marco .info {
+    margin: -4px 0 15px 0;
+    border-top: 1px solid white;
+}
+
+.catalogo .uncuarto .marco .info .pais-anio {
+    margin-top: 8px;
+}
+
+.catalogo .uncuarto .marco .info .titulo {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
+.detalleProducto .detalle .marco .info .titulo {
+    font-size: 2em;
+    margin: 5px 0;
+}
+
+.catalogo .uncuarto .marco .info .tipo,
+.detalleProducto .detalle .marco .info .tipo {
+    color: red;
+    margin-bottom: 5px;
+}
+
+.catalogo .uncuarto .marco .info .precio {
+    margin: 10px 0;
+}
+
+.detalleProducto .detalle .marco .info .precio {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.detalleProducto .detalle .marco .info .precio strong {
+    font-size: 1em;
+}
+
+.detalleProducto .detalle .marco .info .descripcion {
+    margin-bottom: 25px;
+}
+
+.catalogo .uncuarto .marco .info button,
+.detalleProducto .detalle .marco .info button,
+.productoCarrito .cantidad .botonesCantidad button {
+    background: red;
+    padding: 8px 20px;
+    border-radius: 15px;
+    color: white;
+    font-size: 0.85em;
+    cursor: pointer;
+    border: 2px solid red;
+    font-weight: bold;
+}
+
+.catalogo .uncuarto .marco .info button:hover,
+.detalleProducto .detalle .marco .info button:hover,
+.productoCarrito .cantidad .botonesCantidad button:hover {
+    background: black;
+    color: red;
+}
+
+.catalogo .uncuarto .marco .info .viewDetail {
+    background: transparent;
+    margin-top: 15px;
+    border: 0;
+    color: red;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.catalogo .uncuarto .marco .info .viewDetail:hover {
+    color: #944c4c;
+    font-weight: bold;
+}
+
+.catalogo .uncuarto .marco .info .botonesCantidad,
+.detalleProducto .detalle .marco .info .botonesCantidad,
+.catalogo .uncuarto .marco .info .sinStock,
+.detalleProducto .detalle .marco .info .sinStock,
+.productoCarrito .cantidad .botonesCantidad {
+    padding: 0;
+    border-radius: 0;
+    max-width: 171px;
+    margin: 0 auto 10px auto;
+    background: #944c4c;
+}
+
+.catalogo .uncuarto .marco .info .sinStock,
+.detalleProducto .detalle .marco .info .sinStock,
+.catalogo .uncuarto .marco .info .itemAgregado,
+.detalleProducto .detalle .marco .info .itemAgregado {
+    max-width: none;
+    padding: 15px 0;
+    margin-bottom: 23px;
+    text-align: center;
+}
+
+.catalogo .uncuarto .marco .info .itemAgregado,
+.detalleProducto .detalle .marco .info .itemAgregado {
+    background: green;
+    padding: 5px 0;
+    margin-bottom: 10px;
+}
+
+
+.detalleProducto .detalle .marco .info .botonesCantidad,
+.detalleProducto .detalle .marco .info .sinStock {
+    text-align: center;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.catalogo .uncuarto .marco .info .botonesCantidad button,
+.detalleProducto .detalle .marco .info .botonesCantidad button,
+.productoCarrito .cantidad .botonesCantidad button {
+    border-radius: 0;
+    padding: 5px 12px;
+}
+
+.catalogo .uncuarto .marco .info .botonesCantidad span,
+.detalleProducto .detalle .marco .info .botonesCantidad span,
+.catalogo .uncuarto .marco .info .sinStock span,
+.detalleProducto .detalle .marco .info .sinStock span,
+.productoCarrito .cantidad .botonesCantidad span {
+    min-width: 100px;
+    display: inline-block;
+}
+
+.productoCarrito .cantidad .botonesCantidad span {
+    min-width: 48px;
+}
+
+.catalogo .uncuarto .marco .info .viewCart,
+.detalleProducto .detalle .marco .info .viewCart {
+    background: #944c4c;
+    border: 2px solid #944c4c;
+    color: white;
+    font-weight: normal;
+    display: inline-block;
+    padding: 1px 25px;
+    border-radius: 15px;
+}
+
+.catalogo .uncuarto .marco .info .viewCart:hover,
+.detalleProducto .detalle .marco .info .viewCart:hover {
+    color: #944c4c;
+    background: transparent;
+    font-weight: bold;
+}

@@ -1,0 +1,46 @@
+nav {
+    max-width: 1024px;
+    width: 94%;
+    margin: 0 auto;
+    padding: 0 3%;
+}
+
+.logo a {
+    color: red;
+    font-size: 2em;
+    font-weight: bold;
+    font-style: italic;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+}
+
+.logo a:hover {
+    border-bottom: 1px solid red;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+}
+
+ul li a {
+    padding: 10px 25px;
+    border-bottom: 1px solid transparent;
+}
+
+ul li a:hover {
+    color: red;
+    border-bottom: 1px solid red;
+}
+
+.current {
+    background: red;
+}
+
+ul li a.current:hover {
+    color: black;
+}

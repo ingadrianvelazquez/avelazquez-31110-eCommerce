@@ -1,0 +1,84 @@
+.carrito {
+    text-align: right;
+}
+
+.carrito a {
+    padding: 10px;
+    display: inline-block;
+}
+
+.carrito a img {
+    transition: 0.2s;
+}
+
+.carrito a:hover img {
+    transform: scale(1.25);
+}
+
+.carrito a span {
+    display: inline-block;
+    background: red;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 0.75em;
+}
+
+.detalleCarrito {
+    max-width: 800px;
+    width: 94%;
+    padding: 0 3%;
+    margin: 10px auto 50px auto;
+}
+
+.detalleCarrito h1 {
+    font-size: 2em;
+    text-transform: uppercase;
+    color: red;
+    font-style: italic;
+    margin-top: 0;
+}
+
+.verProductos,
+.limpiarCarrito {
+    background: #944c4c;
+    border: 2px solid #944c4c;
+    color: white;
+    font-weight: normal;
+    display: inline-block;
+    padding: 8px 25px;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+.limpiarCarrito {
+    font-size: 0.85em;
+}
+
+.verProductos:hover,
+.limpiarCarrito:hover {
+    color: #944c4c;
+    background: transparent;
+}
+
+.totalCarrito p {
+    font-size: 2em;
+    color: #944c4c;
+    margin: 5px;
+}
+
+.terminarCompra {
+    background: red;
+    border: 2px solid red;
+    color: white;
+    font-weight: normal;
+    display: inline-block;
+    padding: 8px 25px;
+    border-radius: 15px;
+    margin-top: 25px;
+    margin-left: 128px;
+}
+
+.terminarCompra:hover {
+    color: red;
+    background: transparent;
+}
