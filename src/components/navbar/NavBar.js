@@ -20,6 +20,9 @@ const NavBar = () => {
             <li>
                 <NavLink to="/category/games" className={({ isActive }) => (isActive ? 'current' : '')}>Juegos</NavLink>
             </li>
+            <li className="checkOrder">
+                <NavLink to="/checkorder" className={({ isActive }) => (isActive ? 'current' : '')}>Ver Orden</NavLink>
+            </li>
         </ul>
 
         <div className="unquinto carrito">

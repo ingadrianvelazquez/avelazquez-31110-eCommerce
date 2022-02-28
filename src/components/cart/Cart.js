@@ -1,13 +1,11 @@
 import './Cart.css';
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from 'react-router-dom'
 import ProductoCarrito from '../producto/ProductoCarrito';
 
 const Cart = () => {
-    const { cartInfo, addItem, clear } = useContext(CartContext);
-
-    const [totalAmount, setTotalAmount] = useState(0);
+    const { cartInfo, totalAmount, addItem, clear, setTotalAmount } = useContext(CartContext);
 
     useEffect(() => {
         setTotalAmount(getTotalAmount());
@@ -16,15 +14,11 @@ const Cart = () => {
     const getTotalAmount = () => {
         let aux = 0;
         if (cartInfo.length !== 0) {
-            cartInfo.map((product) => {
+            cartInfo.forEach((product) => {
                 aux += (product.price * product.quantity);
             })
         }
         return aux;
-    }
-
-    const clearCart = () => {
-        clear();
     }
 
     const onChange = (product, units) => {
@@ -32,18 +26,16 @@ const Cart = () => {
         setTotalAmount(getTotalAmount());
     }
 
-    const finished = () => {
-        alert('Pendiente!');
-    }
-
     return <div className="detalleCarrito">
         <h1>CARRITO</h1>
         <div>
             <div className="productos">
-                {cartInfo.map((product) =>
-                    <ProductoCarrito key={product.id} product={product} onChangeFn={onChange} />
-                )}
-                <div className="clear"></div>
+                <div className="items">
+                    {cartInfo.map((product) =>
+                        <ProductoCarrito key={product.id} product={product} onChangeFn={onChange} />
+                    )}
+                    <div className="clear"></div>
+                </div>
                 <div className="totalCarrito">
                     {totalAmount > 0 && <p>Total: AR$ {totalAmount}</p>}
                 </div>
@@ -56,8 +48,8 @@ const Cart = () => {
                     <Link to={'/home'} className="verProductos">Ver Productos</Link>
                 </div> :
                 <div>
-                    <button className="limpiarCarrito" onClick={clearCart}>Vaciar Carrito</button>
-                    <button className="terminarCompra" onClick={finished}>Terminar mi Compra</button>
+                    <button className="limpiarCarrito" onClick={clear}>Vaciar Carrito</button>
+                    <Link to={'/checkout'} className="terminarCompra">Terminar mi Compra</Link>
                 </div>}
         </div>
     </div>

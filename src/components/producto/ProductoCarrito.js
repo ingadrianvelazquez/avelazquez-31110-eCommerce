@@ -3,6 +3,7 @@ import './ProductoCarrito.css';
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom';
 
 const ProductoCarrito = ({ product, onChangeFn }) => {
     const { removeItem } = useContext(CartContext);
@@ -27,17 +28,20 @@ const ProductoCarrito = ({ product, onChangeFn }) => {
             <div>Precio Unitario</div>
             <div>AR$ {product.price}</div>
         </div>
-        <div className="cantidad">
+        <div className={onChangeFn ? 'cantidad' : 'cantidad detalleOrden'}>
             <div>Cantidad</div>
-            <ItemCount stock={product.stock} initial={product.quantity} onChange={onChange} />
+            {onChangeFn ?
+                <ItemCount stock={product.stock} initial={product.quantity} onChange={onChange} />
+                : product.quantity}
         </div>
-        <div className="subTotal">
+        <div className={onChangeFn ? 'subtotal' : 'subtotal detalleOrden'}>
             <div>SubTotal</div>
             <div>AR$ {product.price * product.quantity}</div>
         </div>
-        <div className="accion">
-            <button className="quitarProducto" onClick={removeProduct}>Quitar</button>
-        </div>
+        {onChangeFn &&
+            <div className="accion">
+                <button className="quitarProducto" onClick={removeProduct}>Quitar</button>
+            </div>}
         <div className="clear"></div>
     </div>;
 };

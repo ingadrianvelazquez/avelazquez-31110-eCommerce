@@ -5,6 +5,8 @@ import NotFound from '../components/not-found/NotFound';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DetalleProducto from '../components/producto/DetalleProducto';
 import Cart from '../components/cart/Cart';
+import Checkout from '../components/checkout/Checkout';
+import Order from '../components/order/Order';
 
 const Router = () => {
 
@@ -18,6 +20,9 @@ const Router = () => {
             <Route path="/category/:id" element={<Catalogo />} />
             <Route path="/item/:id" element={<DetalleProducto />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkorder" element={<Order />} />
+            <Route path="/checkorder/:orderId" element={<Order />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

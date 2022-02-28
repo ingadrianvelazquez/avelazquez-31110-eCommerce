@@ -44,3 +44,7 @@ ul li a:hover {
 ul li a.current:hover {
     color: black;
 }
+
+.checkOrder {
+    float: right;
+}

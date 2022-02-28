@@ -23,9 +23,9 @@ const Producto = ({ product, getDetail = false }) => {
         <div className="marco">
             <img src={product.image} title={product.name} alt={product.nombre} />
             <div className="info">
-                <div className="pais-anio">{product.country} - {product.year}</div>
+                <div className="tipo">{product.categoryName} <div className="pais-anio"> - {product.country} - {product.year}</div></div>
                 <div className="titulo">{product.name}</div>
-                <div className="tipo">{product.categoryName}</div>
+                <div className="stock">{product.stock > 0 && <span>Stock: {product.stock}</span>}</div>
                 <div className="precio"><strong>AR$</strong> {product.price}</div>
                 {getDetail && <div className="descripcion">{product.description}</div>}
                 {product.stock > 0 && !isInCart(product.id) && <ItemCount stock={product.stock} initial={0} onChange={onChange} />}

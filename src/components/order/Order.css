@@ -60,12 +60,14 @@
     background: transparent;
 }
 
+h2.orderID,
 .totalCarrito p {
     font-size: 1.75em;
     color: #944c4c;
     margin: 5px auto 15px auto;
 }
 
+.viewOrder,
 .terminarCompra,
 .registrarCompra {
     background: red;
@@ -80,8 +82,20 @@
     margin-left: 128px;
 }
 
+.viewOrder:hover,
 .terminarCompra:hover,
 .registrarCompra:hover {
     color: red;
     background: transparent;
+}
+
+.detalleCarrito>input {
+    display: block;
+    width: 300px;
+    font-size: 1.5em;
+    margin: 25px auto;
+    border: 1px solid white;
+    background-color: transparent;
+    padding: 8px 25px;
+    border-radius: 10px;
 }

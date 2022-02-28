@@ -11,23 +11,25 @@ const DetalleProducto = () => {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        const db = getFirestore();
+        if (id) {
+            const db = getFirestore();
 
-        const docRef = doc(db, 'items', id);
-        getDoc(docRef).then((item) => {
-            if (item.exists()) {
-                let prod = item.data();
-                prod.id = item.id;
-                getDoc(prod.categoryId).then((category) => {
-                    let cat = category.data();
-                    prod.category = cat.categoryLabel;
-                    prod.categoryName = cat.categoryName;
-                    setProduct(prod);
-                })
-            }
-        }).finally(() => {
-            setLoading(false);
-        });
+            const docRef = doc(db, 'items', id);
+            getDoc(docRef).then((item) => {
+                if (item.exists()) {
+                    let prod = item.data();
+                    prod.id = item.id;
+                    getDoc(prod.categoryId).then((category) => {
+                        let cat = category.data();
+                        prod.category = cat.categoryLabel;
+                        prod.categoryName = cat.categoryName;
+                        setProduct(prod);
+                    })
+                }
+            }).finally(() => {
+                setLoading(false);
+            });
+        }
     }, [id])
 
     if (loading) {

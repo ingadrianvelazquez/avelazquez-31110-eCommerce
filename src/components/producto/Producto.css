@@ -45,13 +45,16 @@
     border-top: 1px solid white;
 }
 
-.catalogo .uncuarto .marco .info .pais-anio {
+.catalogo .uncuarto .marco .info .pais-anio,
+.detalleProducto .detalle .marco .info .pais-anio {
     margin-top: 8px;
+    display: inline-block;
+    color: #999;
 }
 
 .catalogo .uncuarto .marco .info .titulo {
-    font-size: 1.5em;
-    margin: 5px 0;
+    font-size: 1.75em;
+    margin: 0;
 }
 
 .detalleProducto .detalle .marco .info .titulo {
@@ -62,10 +65,11 @@
 .catalogo .uncuarto .marco .info .tipo,
 .detalleProducto .detalle .marco .info .tipo {
     color: red;
-    margin-bottom: 5px;
+    font-size: 1.15em;
 }
 
 .catalogo .uncuarto .marco .info .precio {
+    font-size: 1.25em;
     margin: 10px 0;
 }
 
@@ -80,6 +84,7 @@
 
 .detalleProducto .detalle .marco .info .descripcion {
     margin-bottom: 25px;
+    color: #999;
 }
 
 .catalogo .uncuarto .marco .info button,
@@ -189,4 +194,16 @@
     color: #944c4c;
     background: transparent;
     font-weight: bold;
+}
+
+.catalogo .uncuarto .marco .info .stock,
+.detalleProducto .detalle .marco .info .stock {
+    min-height: 30px;
+}
+
+.catalogo .uncuarto .marco .info .stock span,
+.detalleProducto .detalle .marco .info .stock span {
+    color: #999;
+    min-height: 30px;
+    font-size: 0.85em;
 }

@@ -85,3 +85,63 @@
     color: red;
     background: transparent;
 }
+
+.detalleCarrito .productos .checkout {
+    display: none;
+    border: 1px solid white;
+    padding: 15px 25px 25px 25px;
+    border-radius: 25px;
+}
+
+.detalleCarrito .productos .checkout p {
+    color: red;
+    font-size: 1.15em;
+    margin-top: 0;
+}
+
+.detalleCarrito .productos .checkout form>div {
+    padding: 5px 0;
+}
+
+.detalleCarrito .productos.finalizar .checkout {
+    display: inline-block;
+}
+
+.detalleCarrito .productos .checkout label {
+    width: 130px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 25px;
+}
+
+.detalleCarrito .productos .checkout input {
+    border: 1px solid white;
+    background-color: transparent;
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+
+.seguirComprando {
+    background: #944c4c;
+    border: 2px solid #944c4c;
+    color: white;
+    font-weight: normal;
+    display: inline-block;
+    padding: 1px 25px;
+    border-radius: 15px;
+}
+
+.seguirComprando:hover {
+    color: #944c4c;
+    background: transparent;
+    font-weight: bold;
+}
+
+.errorTip {
+    display: block;
+    font-size: 0.9em;
+    font-weight: normal;
+    font-style: italic;
+    color: #944c4c;
+    margin: 5px 0;
+}

@@ -10,6 +10,13 @@ Para llevar adelante el aprendizaje se realiza una tienda online que ofrece como
 
 ## Changelog / Desafíos realizados
 
+`Desafío: Item Collection II`
+
+- Se agrega la ruta {/checkout} solicitando y validando datos del usuarios
+- Se registra la orden en Firestore, aplicando el descuento del stock correctamente mediante ***batch*** y se informa el ID generado
+- Se lista tambien el stock en los productos para un control mas rapido
+- Se agrega la ruta {/checkorder} para buscar detalle de las ordenes realizadas
+
 `Desafío: Item Collection`
 
 - La integración con Firebase ya se encuentra desarrollada
