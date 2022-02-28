@@ -6,7 +6,7 @@ Para llevar adelante el aprendizaje se realiza una tienda online que ofrece como
 
 * No se emplean dependencias extras 
 * No se emplea ningún framework CSS
-* El build más reciente se encuentra disponible en: [Netlify](https://e-commerce-31110-velazquez.netlify.app/)
+* El build más reciente se encuentra disponible en: [Netlify](https://avelazquez-31110-ecommerce.netlify.app/)
 
 ## Changelog / Desafíos realizados
 
