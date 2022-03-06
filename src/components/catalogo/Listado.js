@@ -1,15 +1,14 @@
+import NotFound from '../not-found/NotFound';
 import Producto from '../producto/Producto';
 
 const Listado = ({ products }) => {
 
     return <div>
-        {products && products.length > 0 && products.map((product) => (
+        {products.length > 0 && products.map((product) => (
             <Producto key={product.id} product={product} />
         ))}
         {products.length === 0 &&
-            <div>
-                <h2>NO existen elementos asociados a la categoría seleccionada!</h2>
-            </div>}
+            <NotFound from="cat" />}
     </div>;
 };
 

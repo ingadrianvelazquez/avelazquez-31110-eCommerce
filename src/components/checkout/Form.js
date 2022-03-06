@@ -16,6 +16,11 @@ const Form = ({ buyer, validation, setBuyer, setValidation }) => {
             type: 'email',
             name: 'email',
         },
+        {
+            label: 'Confirmar Email',
+            type: 'email',
+            name: 'confirm_email',
+        },
     ]
 
     return <div className="checkout">

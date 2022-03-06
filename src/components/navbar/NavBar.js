@@ -1,8 +1,27 @@
 import './NavBar.css';
 import CartWidget from '../cart/CartWidget';
 import { Link, NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 const NavBar = () => {
+
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const aux = [];
+        const db = getFirestore();
+        getDocs(collection(db, 'categories')).then((cats) => {
+            cats.docs.forEach(async (cat) => {
+                aux.push(cat.data())
+            })
+        }).finally(() => {
+            setCategories(aux);
+            setLoading(false);
+        });
+    }, [])
+
     return <nav>
         <div className="unquinto logo">
             <Link to="/">
@@ -11,15 +30,16 @@ const NavBar = () => {
         </div >
 
         <ul className="tresquintos">
-            <li>
-                <NavLink to="/category/movies" className={({ isActive }) => (isActive ? 'current' : '')}>Películas</NavLink>
-            </li>
-            <li>
-                <NavLink to="/category/series" className={({ isActive }) => (isActive ? 'current' : '')}>Series</NavLink>
-            </li>
-            <li>
-                <NavLink to="/category/games" className={({ isActive }) => (isActive ? 'current' : '')}>Juegos</NavLink>
-            </li>
+            {loading ?
+                <span>Cargando categorias...</span>
+                :
+                categories.map((cat) => {
+                    let catLink = '/category/' + cat.categoryLabel;
+                    return <li key={cat.categoryLabel}>
+                        <NavLink to={catLink} className={({ isActive }) => (isActive ? 'current' : '')}>{cat.categoryName}</NavLink>
+                    </li>
+                })
+            }
             <li className="checkOrder">
                 <NavLink to="/checkorder" className={({ isActive }) => (isActive ? 'current' : '')}>Ver Orden</NavLink>
             </li>

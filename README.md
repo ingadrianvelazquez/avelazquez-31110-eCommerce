@@ -2,13 +2,48 @@
 
 Para llevar adelante el aprendizaje se realiza una tienda online que ofrece como productos digitales: películas, series y videojuegos bajo la temática Zombies.
 
+## Screenshot
+
+![Home](https://i.imgur.com/QNpg4GN.jpg)
+
+## DEMO
+
+El build más reciente se encuentra disponible en: [Netlify](https://avelazquez-31110-ecommerce.netlify.app/)
+
 ## Consideraciones
 
 * No se emplean dependencias extras 
 * No se emplea ningún framework CSS
-* El build más reciente se encuentra disponible en: [Netlify](https://avelazquez-31110-ecommerce.netlify.app/)
+
+## Ejecutar localmente
+
+*1ro.* Clonar el proyecto
+```bash
+  git clone https://github.com/ingadrianvelazquez/avelazquez-31110-eCommerce.git
+```
+*2do.* Ir al directorio del mismo
+```bash
+  cd avelazquez-31110-eCommerce
+```
+*3ro.* Instalar dependencias
+```bash
+  npm install
+```
+*4ro.* Levantar el server
+```bash
+  npm start
+```
+*5to.* **LISTO!**
 
 ## Changelog / Desafíos realizados
+
+`Entrega del Proyecto Final`
+
+- Se cargan las categorías del menú desde Firestore
+- Se agrega confirmación del correo electrónico
+- Se unifica componente NotFound para producto, página y categoría inexistentes
+- Se unifica componente Loading para catálogo, producto y orden
+- Se desglosan componentes para simplificar su análisis y separar elementos
 
 `Desafío: Item Collection II`
 

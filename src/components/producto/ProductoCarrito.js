@@ -18,7 +18,9 @@ const ProductoCarrito = ({ product, onChangeFn }) => {
 
     return <div className="productoCarrito">
         <div className="thumb">
-            <img src={product.image} title={product.name} alt={product.nombre} />
+            <Link to={'/item/' + product.id} className="viewDetail">
+                <img src={product.image} title={product.name} alt={product.nombre} />
+            </Link>
         </div>
         <div className="info">
             <div className="titulo">{product.name}</div>

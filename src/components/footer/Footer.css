@@ -1,6 +1,9 @@
 footer {
     background: #333;
     padding: 25px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .copyright {

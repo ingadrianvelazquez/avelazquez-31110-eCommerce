@@ -10,6 +10,11 @@
 
 .productoCarrito .thumb img {
     max-width: 64px;
+    transition: 0.2s;
+}
+
+.productoCarrito .thumb img:hover {
+    transform: scale(1.05);
 }
 
 .productoCarrito .info {
@@ -30,7 +35,7 @@
     margin-top: 5px;
 }
 
-.productoCarrito .subTotal {
+.productoCarrito .subtotal {
     width: 100px;
     margin-top: 5px;
 }

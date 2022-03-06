@@ -7,6 +7,7 @@
 
 .detalleProducto .detalle .marco {
     border: 1px solid white;
+    background: #000000AA;
     padding: 25px;
 }
 
@@ -25,6 +26,7 @@
 
 .catalogo .uncuarto .marco {
     border: 1px solid white;
+    background: #000000AA;
 }
 
 .catalogo .uncuarto .marco img {
@@ -37,7 +39,7 @@
 }
 
 .catalogo .uncuarto .marco:hover img {
-    transform: scale(0.95);
+    transform: scale(1.03);
 }
 
 .catalogo .uncuarto .marco .info {

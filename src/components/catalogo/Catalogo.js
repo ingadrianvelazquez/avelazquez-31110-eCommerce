@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import './Catalogo.css';
-import loadingZombie from '../../img/loadingZombie.gif';
 import { useParams } from 'react-router-dom';
 import Listado from './Listado'
 import { collection, getDoc, getDocs, getFirestore, limit, query, where } from 'firebase/firestore';
+import Loading from '../loading/Loading';
 
 const Catalogo = () => {
     const { id } = useParams();
@@ -51,13 +51,10 @@ const Catalogo = () => {
         }
     }, [id])
 
-    if (loading) {
-        return <div className="loading">
-            <p>cargando...</p>
-            <img src={loadingZombie} alt="Loading" title="Loading" />
-            <p>cargando...</p>
-        </div>
-    }
+    if (loading)
+        return (
+            <Loading />
+        )
 
     return <div className="catalogo">
         <h1>{id ? 'Categoría ' + id : 'Destacados'}</h1>

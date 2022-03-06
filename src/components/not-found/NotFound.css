@@ -1,0 +1,11 @@
+.notFound {
+    padding: 0 25px 35px 25px;
+    background: #000000AA;
+    border-radius: 25px;
+    display: inline-block;
+}
+
+.notFound h1 {
+    font-size: 2em;
+    color: red;
+}

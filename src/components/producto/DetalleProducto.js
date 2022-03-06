@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import Producto from '../producto/Producto';
-import loadingZombie from '../../img/loadingZombie.gif';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import NotFound from '../not-found/NotFound';
+import Loading from '../loading/Loading';
 
 const DetalleProducto = () => {
     const { id } = useParams();
@@ -32,22 +33,17 @@ const DetalleProducto = () => {
         }
     }, [id])
 
-    if (loading) {
-        return <div className="loading">
-            <p>cargando...</p>
-            <img src={loadingZombie} alt="Loading" title="Loading" />
-            <p>cargando...</p>
-        </div>
-    }
+    if (loading)
+        return (
+            <Loading />
+        )
 
     return <div className="detalleProducto">
         {id && product.name?.length > 0 &&
             <Producto key={product.id} product={product} getDetail={true} />
         }
         {product.length === 0 &&
-            <div>
-                <h2>NO existe el producto buscado!</h2>
-            </div>
+            <NotFound from="prd" />
         }
         <div className="clear"></div>
     </div>;

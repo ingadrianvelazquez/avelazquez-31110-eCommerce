@@ -26,8 +26,9 @@
 .detalleCarrito {
     max-width: 800px;
     width: 94%;
-    padding: 0 3%;
+    padding: 0 3% 25px 3%;
     margin: 10px auto 50px auto;
+    background: #000000AA;
 }
 
 .detalleCarrito h1 {
@@ -65,6 +66,14 @@ h2.orderID,
     font-size: 1.75em;
     color: #944c4c;
     margin: 5px auto 15px auto;
+}
+
+h2.orderID span {
+    color: red;
+    font-weight: normal;
+    font-style: italic;
+    position: relative;
+    top: -5px;
 }
 
 .viewOrder,

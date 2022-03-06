@@ -1,20 +1,21 @@
 import './Order.css';
 import { useState, useEffect } from "react";
-import { Link, useParams } from 'react-router-dom'
-import ProductoCarrito from '../producto/ProductoCarrito';
-import loadingZombie from '../../img/loadingZombie.gif';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
-
+import OrderDetail from './OrderDetail';
+import Loading from '../loading/Loading';
+import OrderSearch from './OrderSearch';
+import OrderNotFound from './OrderNotFound';
+import { useParams } from 'react-router-dom';
 
 const Order = () => {
     const { orderId } = useParams();
 
     const [loading, setLoading] = useState(true);
-    const [searchOrder, setSearchOrder] = useState('');
     const [order, setOrder] = useState([]);
 
     useEffect(() => {
         if (orderId) {
+            setOrder([]);
             const db = getFirestore();
             const docRef = doc(db, 'orders', orderId);
             getDoc(docRef).then((orden) => {
@@ -27,48 +28,21 @@ const Order = () => {
         }
     }, [orderId])
 
-    if (!orderId) {
-        return <div className="detalleCarrito">
-            <h2 className="orderID">Por favor, ingrese el código de su Orden</h2>
-            <input type="text" name="orderID" value={searchOrder} id="orderID" onChange={(e) => setSearchOrder(e.target.value)} />
-            <p>Ejemplo: wx2H8bZNe2hYZojdtEMs</p>
-            <Link to={'/checkorder/' + searchOrder} className="viewOrder">Ver Detalle</Link>
-        </div>
-    }
+    if (!orderId)
+        return (
+            <OrderSearch />
+        )
 
-    if (loading) {
-        return <div className="loading">
-            <p>cargando...</p>
-            <img src={loadingZombie} alt="Loading" title="Loading" />
-            <p>cargando...</p>
-        </div>
-    }
-
-    console.log(order);
+    if (loading)
+        return (
+            <Loading />
+        )
 
     return <div className="detalleCarrito">
         <h1>MI ORDEN</h1>
-        <p>Hola <strong>{order.buyer.name}</strong>! Este es el detalle de tu orden:</p>
-        <h2 className="orderID">{orderId}</h2>
-        <div>
-            {order.length !== 0 ?
-                <div className="productos">
-                    <div className="items">
-                        {order.items.map((product) =>
-                            <ProductoCarrito key={product.name} product={product} />
-                        )}
-                        <div className="clear"></div>
-                    </div>
-                    <div className="totalCarrito">
-                        <p>Total: AR$ {order.total}</p>
-                    </div>
-                </div>
-                :
-                <div>
-                    <p>NO se hallaron datos para la orden ingresada.</p>
-                    <Link to={'/home'} className="verProductos">Continuar Navegando</Link>
-                </div>}
-        </div>
+        {order.length !== 0 ?
+            <OrderDetail orderId={orderId} order={order} />
+            : <OrderNotFound />}
     </div>
 };
 

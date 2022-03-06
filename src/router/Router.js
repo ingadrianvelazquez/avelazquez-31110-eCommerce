@@ -7,6 +7,7 @@ import DetalleProducto from '../components/producto/DetalleProducto';
 import Cart from '../components/cart/Cart';
 import Checkout from '../components/checkout/Checkout';
 import Order from '../components/order/Order';
+import Login from '../components/login/Login';
 
 const Router = () => {
 
@@ -23,7 +24,8 @@ const Router = () => {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/checkorder" element={<Order />} />
             <Route path="/checkorder/:orderId" element={<Order />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<NotFound from="pag" />} />
         </Routes>
         <Footer />
     </BrowserRouter>;

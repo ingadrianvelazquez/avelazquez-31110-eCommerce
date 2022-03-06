@@ -1,6 +1,7 @@
 body {
-	background-color: black;
 	font-family: 'Oswald', sans-serif;
+	background: url(https://i.imgur.com/LsjKlo3.jpg) #000000;
+	background-size: cover;
 }
 
 * {

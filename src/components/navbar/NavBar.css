@@ -48,3 +48,8 @@ ul li a.current:hover {
 .checkOrder {
     float: right;
 }
+
+.tresquintos>span {
+    color: #944c4c;
+    font-style: italic;
+}

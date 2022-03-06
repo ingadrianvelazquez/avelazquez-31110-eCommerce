@@ -21,7 +21,9 @@ const Producto = ({ product, getDetail = false }) => {
 
     return <div className={getDetail ? 'detalle' : 'uncuarto'}>
         <div className="marco">
-            <img src={product.image} title={product.name} alt={product.nombre} />
+            <Link to={'/item/' + product.id} className="viewDetail">
+                <img src={product.image} title={product.name} alt={product.nombre} />
+            </Link>
             <div className="info">
                 <div className="tipo">{product.categoryName} <div className="pais-anio"> - {product.country} - {product.year}</div></div>
                 <div className="titulo">{product.name}</div>
