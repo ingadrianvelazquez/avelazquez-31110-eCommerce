@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 
 const OrderListItem = ({ orderId, order }) => {
 
+    const getTotalUnits = () => {
+        let ret = 0;
+        order.items.forEach((item) => {
+            ret += item.quantity;
+        });
+        return ret;
+    }
     return <div className="orderListItem">
         <div className="elemTD codigo">
             Código de la orden
@@ -22,7 +29,7 @@ const OrderListItem = ({ orderId, order }) => {
         </div>
         <div className="elemTD cantidad">
             Cantidad total
-            <span>{order.items.length} unidades.</span>
+            <span>{getTotalUnits()} unidades.</span>
         </div>
         <div className="elemTD total">
             Monto Total
