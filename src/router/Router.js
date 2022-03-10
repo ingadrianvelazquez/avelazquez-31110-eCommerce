@@ -24,7 +24,10 @@ const Router = () => {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/checkorder" element={<Order />} />
             <Route path="/checkorder/:orderId" element={<Order />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login actionLogin="in" />} />
+            <Route path="/logout" element={<Login actionLogin="out" />} />
+            <Route path="/login-checkout" element={<Login actionLogin="in" from="/checkout" />} />
+            <Route path="/logout-checkout" element={<Login actionLogin="out" from="/checkout" />} />
             <Route path="*" element={<NotFound from="pag" />} />
         </Routes>
         <Footer />

@@ -4,6 +4,7 @@ import { CartContext } from "../../context/CartContext";
 import CheckoutEmpty from './CheckoutEmpty';
 import CheckoutDetail from './CheckoutDetail';
 import CheckoutSuccess from './CheckoutSuccess';
+import userDefault from '../../helper/Constants.js';
 
 const Cart = () => {
     const { cartInfo } = useContext(CartContext);
@@ -11,14 +12,7 @@ const Cart = () => {
     const [orderID, setOrderID] = useState('');
     const [message, setMessage] = useState('');
 
-    const [buyer, setBuyer] = useState(
-        {
-            name: '',
-            phone: '',
-            email: '',
-            confirm_email: '',
-        }
-    );
+    const [buyer, setBuyer] = useState(userDefault);
 
     return <div className="detalleCarrito">
         <h1>{orderID === '' ? 'TERMINAR MI COMPRA' : 'COMPRA EXITOSA!'}</h1>

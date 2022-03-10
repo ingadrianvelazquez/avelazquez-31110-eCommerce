@@ -1,71 +1,48 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { CartContext } from '../../context/CartContext';
+import { Navigate } from "react-router-dom";
+import userDefault from '../../helper/Constants.js';
+import Loading from '../loading/Loading';
 
-const Login = () => {
-
-    const [user, setUser] = useState({
-        displayName: '',
-        email: '',
-        phoneNumber: '',
-        photoURL: '',
-    })
-
+const Login = ({ actionLogin, from }) => {
+    const { buyerInfo, setBuyerInfo } = useContext(CartContext);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const provider = new GoogleAuthProvider();
-        const auth = getAuth();
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential = GoogleAuthProvider.credentialFromResult(result);
 
-                console.log('credential', credential)
+        if (actionLogin === 'out') {
+            setBuyerInfo(userDefault)
+            setLoading(false)
+        }
 
-                const token = credential.accessToken;
-                console.log('token', token)
+        if (actionLogin === 'in' && buyerInfo.name === '') {
+            const provider = new GoogleAuthProvider();
+            const auth = getAuth();
+            const loginWithGoogle = async () => {
+                await signInWithPopup(auth, provider)
+                    .then((result) => {
+                        const guser = result.user;
+                        setBuyerInfo({
+                            name: guser.displayName,
+                            phone: guser.phoneNumber,
+                            email: guser.email,
+                            confirm_email: guser.email,
+                            photoURL: guser.photoURL,
+                        })
+                    }).catch((error) => {
+                        console.log('login error: ', error);
+                    }).finally(() => {
+                        setLoading(false)
+                    });
+            }
+            loginWithGoogle();
+        }
+    }, [actionLogin])
 
-                // The signed-in user info.
-                const guser = result.user;
-                console.log('user', guser)
-
-                setUser({
-                    displayName: guser.displayName,
-                    email: guser.email,
-                    phoneNumber: guser.phoneNumber,
-                    photoURL: guser.photoURL,
-                })
-                // ...
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                console.log('errorCode', errorCode)
-
-                const errorMessage = error.message;
-                console.log('errorMessage', errorMessage)
-
-                // The email of the user's account used.
-                const email = error.email;
-                console.log('email', email)
-
-                // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error);
-                console.log('credential', credential)
-                // ...
-            });
-    }, [])
-
-
-
-    return <div>
-        {user.displayName !== '' ?
-            <div>
-                <p>nombre : {user.displayName}</p>
-                <p>email: {user.email}</p>
-                <p>telefono: {user.phoneNumber}</p>
-                <img src={user.photoURL} alt={user.displayName} title={user.displayName} />
-            </div>
-            : <p>ESPERANDO...</p>}
-    </div>
+    return loading ? (
+        <Loading />
+    ) : (<Navigate to={from !== undefined ? from : '/home'} />);
 
 }
 

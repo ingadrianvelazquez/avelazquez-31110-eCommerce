@@ -1,19 +1,30 @@
-import { createContext, useState } from 'react';
+import { createContext } from 'react';
+import { LocalStorage } from '../helper/LocalStorage';
+import userDefault from '../helper/Constants.js'
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
 
-    const [cartInfo, setCartInfo] = useState([]);
-    const [totalAmount, setTotalAmount] = useState(0);
+    const [cartInfo, setCartInfo] = LocalStorage("cartInfo", []);
+    const [totalAmount, setTotalAmount] = LocalStorage("totalAmount", 0);
+
+    const [buyerInfo, setBuyerInfo] = LocalStorage("buyerInfo", userDefault);
 
     const addItem = (currentItem, quantity) => {
         if (quantity === 0)
             removeItem(currentItem.id);
         else {
             currentItem.quantity = quantity;
-            if (!isInCart(currentItem.id))
+            if (!isInCart(currentItem.id)) {
                 setCartInfo([...cartInfo, currentItem]);
+            } else {
+                setCartInfo(cartInfo.map(prod =>
+                    prod.id === currentItem.id
+                        ? { ...prod, quantity: quantity }
+                        : prod
+                ));
+            }
         }
     }
 
@@ -49,7 +60,7 @@ export const CartProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ cartInfo, totalAmount, addItem, clear, removeItem, isInCart, setTotalAmount, getTotalAmount, getQuantity }}>
+        <CartContext.Provider value={{ cartInfo, totalAmount, addItem, clear, removeItem, isInCart, setTotalAmount, getTotalAmount, getQuantity, buyerInfo, setBuyerInfo }}>
             {children}
         </CartContext.Provider>
     );

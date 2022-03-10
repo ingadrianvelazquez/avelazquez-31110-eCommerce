@@ -3,6 +3,7 @@ import CartWidget from '../cart/CartWidget';
 import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import LoginWidget from '../login/LoginWidget';
 
 const NavBar = () => {
 
@@ -46,6 +47,7 @@ const NavBar = () => {
         </ul>
 
         <div className="unquinto carrito">
+            <LoginWidget />
             <CartWidget />
         </div>
 
