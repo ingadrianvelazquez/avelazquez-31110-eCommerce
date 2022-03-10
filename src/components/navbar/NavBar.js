@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import LoginWidget from '../login/LoginWidget';
+import OrderFav from './OrderFav';
 
 const NavBar = () => {
 
@@ -41,9 +42,7 @@ const NavBar = () => {
                     </li>
                 })
             }
-            <li className="checkOrder">
-                <NavLink to="/checkorder" className={({ isActive }) => (isActive ? 'current' : '')}>Ver Orden</NavLink>
-            </li>
+            <OrderFav />
         </ul>
 
         <div className="unquinto carrito">

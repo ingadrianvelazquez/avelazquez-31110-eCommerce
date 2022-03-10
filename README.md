@@ -44,6 +44,10 @@ El build más reciente se encuentra disponible en: [Netlify](https://avelazquez-
 - Se unifica componente NotFound para producto, página y categoría inexistentes
 - Se unifica componente Loading para catálogo, producto y orden
 - Se desglosan componentes para simplificar su análisis y separar elementos
+- Se integra LocalStorage para operar el carrito y el usuario logueado
+- Se agrega la actualización de cantidad sobre un producto si este ya existe en el carrito, necesario para que pegue correctamente sobre LocalStorage
+- Se integra Autenticación con Google mediante Firebase {/login}, para poder comprar como usuario registrado
+- Se agrega el listado de ordenes que registra en Firestore el usuario logueado {/myorders}
 
 `Desafío: Item Collection II`
 

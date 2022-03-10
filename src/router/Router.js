@@ -8,6 +8,8 @@ import Cart from '../components/cart/Cart';
 import Checkout from '../components/checkout/Checkout';
 import Order from '../components/order/Order';
 import Login from '../components/login/Login';
+import Favorites from '../components/favorites/Favorites';
+import Orders from '../components/order/Orders';
 
 const Router = () => {
 
@@ -28,6 +30,8 @@ const Router = () => {
             <Route path="/logout" element={<Login actionLogin="out" />} />
             <Route path="/login-checkout" element={<Login actionLogin="in" from="/checkout" />} />
             <Route path="/logout-checkout" element={<Login actionLogin="out" from="/checkout" />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/myorders" element={<Orders />} />
             <Route path="*" element={<NotFound from="pag" />} />
         </Routes>
         <Footer />
