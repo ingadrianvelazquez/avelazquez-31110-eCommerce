@@ -10,6 +10,7 @@ export const CartProvider = ({ children }) => {
     const [totalAmount, setTotalAmount] = LocalStorage("totalAmount", 0);
 
     const [buyerInfo, setBuyerInfo] = LocalStorage("buyerInfo", userDefault);
+    const [favorites, setFavorites] = LocalStorage("favorites", []);
 
     const addItem = (currentItem, quantity) => {
         if (quantity === 0)
@@ -28,6 +29,15 @@ export const CartProvider = ({ children }) => {
         }
     }
 
+    const addFavorite = (idFavorite, currentItem) => {
+        if (!isInFavorites(currentItem.id))
+            setFavorites([...favorites, { email: buyerInfo.email, idFav: idFavorite, product: currentItem }]);
+    }
+
+    const removeFavorite = (itemId) => {
+        setFavorites(favorites.filter(favorite => favorite.product.id !== itemId))
+    }
+
     const removeItem = (itemId) => {
         setCartInfo(cartInfo.filter(product => product.id !== itemId))
     }
@@ -35,6 +45,10 @@ export const CartProvider = ({ children }) => {
     const clear = () => {
         setCartInfo([]);
         setTotalAmount(0);
+    }
+
+    const isInFavorites = (itemId) => {
+        return favorites?.some((item) => item.product.id === itemId) ? true : false;
     }
 
     const isInCart = (itemId) => {
@@ -60,7 +74,7 @@ export const CartProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ cartInfo, totalAmount, addItem, clear, removeItem, isInCart, setTotalAmount, getTotalAmount, getQuantity, buyerInfo, setBuyerInfo }}>
+        <CartContext.Provider value={{ cartInfo, totalAmount, addItem, clear, removeItem, isInCart, setTotalAmount, getTotalAmount, getQuantity, buyerInfo, setBuyerInfo, favorites, setFavorites, removeFavorite, addFavorite, isInFavorites }}>
             {children}
         </CartContext.Provider>
     );

@@ -6,7 +6,8 @@ const NotFound = ({ from }) => {
         'cat': <p>NO existen elementos asociados a la categoría seleccionada!</p>,
         'pag': <h1>Página NO encontrada!</h1>,
         'prd': <h1>NO existe el producto buscado!</h1>,
-        'ord': <h1>Aún no has realizado ninguna orden.</h1>,
+        'ord': <h1>Aún NO has realizado ninguna orden.</h1>,
+        'fav': <h1>Aún NO has marcado ningún favorito.</h1>,
     }
 
     return <div className="notFound">

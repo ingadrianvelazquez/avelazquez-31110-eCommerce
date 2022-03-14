@@ -209,3 +209,13 @@
     min-height: 30px;
     font-size: 0.85em;
 }
+
+.catalogo .uncuarto .marco img.favoriteIcon,
+.detalleProducto .detalle .marco img.favoriteIcon {
+    width: 24px;
+    margin-left: 10px;
+    float: none;
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+}

@@ -10,6 +10,7 @@ const OrderListItem = ({ orderId, order }) => {
         });
         return ret;
     }
+
     return <div className="orderListItem">
         <div className="elemTD codigo">
             Código de la orden
@@ -24,7 +25,7 @@ const OrderListItem = ({ orderId, order }) => {
         <div className="elemTD thumbs">
             {order.items.map((item) => {
                 return (
-                    <img src={item.image} title={item.name} alt={item.nombre} />)
+                    <img key={orderId + '-' + item.name} src={item.image} title={item.name} alt={item.name} />)
             })}
         </div>
         <div className="elemTD cantidad">

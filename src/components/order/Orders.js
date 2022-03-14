@@ -23,7 +23,6 @@ const Orders = () => {
                 //setOrders([...orders, order]);
             })
             setOrders(aux);
-            console.table(aux)
             setLoading(false);
         };
 

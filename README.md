@@ -4,7 +4,7 @@ Para llevar adelante el aprendizaje se realiza una tienda online que ofrece como
 
 ## Screenshot
 
-![Home](https://i.imgur.com/QNpg4GN.jpg)
+![Home](https://i.imgur.com/vq6Zjt6.jpg)
 
 ## DEMO
 
@@ -35,6 +35,21 @@ El build más reciente se encuentra disponible en: [Netlify](https://avelazquez-
 ```
 *5to.* **LISTO!**
 
+
+## Extras Agregados
+
+***`Categorías personalizadas`***, separando los productos de estas, normalizando la relación
+
+***`Login with Google`***, a traves de Firebase
+
+***`Favoritos`***, permitiendo agregar y quitar a placer, trayendo estos al momento de loguearse
+
+***`LocalStorage`***, para persitir el carrito, favoritos y datos del usuario
+
+***`Mis Ordenes`***, para listar todas las ordenes del usuario logueado
+
+
+
 ## Changelog / Desafíos realizados
 
 `Entrega del Proyecto Final`
@@ -44,10 +59,11 @@ El build más reciente se encuentra disponible en: [Netlify](https://avelazquez-
 - Se unifica componente NotFound para producto, página y categoría inexistentes
 - Se unifica componente Loading para catálogo, producto y orden
 - Se desglosan componentes para simplificar su análisis y separar elementos
-- Se integra LocalStorage para operar el carrito y el usuario logueado
+- Se integra LocalStorage para operar el carrito, el usuario logueado y los favoritos
 - Se agrega la actualización de cantidad sobre un producto si este ya existe en el carrito, necesario para que pegue correctamente sobre LocalStorage
 - Se integra Autenticación con Google mediante Firebase {/login}, para poder comprar como usuario registrado
 - Se agrega el listado de ordenes que registra en Firestore el usuario logueado {/myorders}
+- Se agregan favoritos, trayendolos en el login del usuario
 
 `Desafío: Item Collection II`
 
